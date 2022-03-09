@@ -1,0 +1,74 @@
+<div *ngIf="modalProductoService.modal" class="config-modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: darkseagreen !important;">
+          <h5 class="modal-title text-white">Alta de articulo</h5>
+          <button type="button" class="close"  aria-label="Close" (click)="modalProductoService.close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editarProductoForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="modal-body">
+              <div class="row">
+                <div class="form-group col-md-4 text-left">
+                  <label for="codigo">Codigo :<span style="color:darkred"> *</span> </label>
+                  <input type="text" class="form-control form-control-sm" style="border-style: dashed;" [(ngModel)]="producto.codigo" id="codigo" name="codigo" #codigo="ngModel" required>
+                  <small><span class="text-danger" [hidden]="codigo.valid || codigo.pristine">Campo requerido</span></small>
+                </div>
+                <div class="form-group col-md-4 text-left">
+                  <label for="descripcion">Descripcion :<span style="color:darkred"> *</span> </label>
+                  <input  type="text" class="form-control form-control-sm" style="border-style: dashed;" [(ngModel)]="producto.descripcion" id="descripcion" name="descripcion" #descripcion="ngModel" required>
+                  <small><span class="text-danger" [hidden]="descripcion.valid || descripcion.pristine">Campo requerido</span></small>
+                </div>
+                <div class="form-group col-md-4 text-left">
+                  <label for="formatoSalida">Formato Salida :<span style="color:darkred"> *</span> </label>
+                  <input  type="text" class="form-control form-control-sm" style="border-style: dashed;" [(ngModel)]="producto.formatoSalida" id="formatoSalida" name="formatoSalida" #formatoSalida="ngModel" required>
+                  <small> <span class="text-danger" [hidden]="formatoSalida.valid || formatoSalida.pristine">Campo requerido</span></small>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6 text-left">
+                  <label for="cmMarca">Marca: <span style="color:darkred"> *</span></label>
+  
+                  <select  style="border-style: dashed;" class="form-control" id="cmMarca" name="cmMarca" [(ngModel)]="producto.marca" #marca="ngModel" required>
+  
+                    <option *ngFor="let marca of marcas" [ngValue]="marca">{{marca.codigo}} - {{marca.formatoSalida}}
+                    </option>
+  
+                  </select>
+                 <small> <span class="text-danger" [hidden]="marca.valid || marca.pristine">
+                   La marca es requerida
+                  </span>
+                </small>
+                </div>
+
+                <div class="form-group col-md-6 text-left">
+                  <label for="cmClasificacion">Marca: <span style="color:darkred"> *</span></label>
+  
+                  <select style="border-style: dashed;" class="form-control" id="cmClasificacion" name="cmClasificacion" [(ngModel)]="producto.clasificacion" #clasificacion="ngModel" required>
+  
+                    <option   *ngFor="let clasificacion of clasificaciones" [ngValue]="clasificacion">{{clasificacion.codigo}} - {{clasificacion.formatoSalida}}
+                    </option>
+  
+                  </select>
+                 <small> <span class="text-danger" [hidden]="clasificacion.valid || clasificacion.pristine">
+                   La marca es requerida
+                  </span>
+                </small>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer" style="    padding: 0.1px;">
+              <button class="btn btn-secondary" type="button" (click)="modalProductoService.close()">Cancelar</button>
+              <button id="btnRegistrar" type="submit" (submit)="submitted == true" [disabled]="!editarProductoForm.form.valid" class="btn btn-success" data-loading-text="Registrando...">Registrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

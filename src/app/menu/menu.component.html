@@ -1,0 +1,68 @@
+<!-- Vertical navbar -->
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="https://bootstrapious.com/i/snippets/sn-v-nav/avatar.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0">Guili Lujano Sanchez</h4>
+        <p class="font-weight-light text-muted mb-0">Cajero</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Home
+            </a>
+    </li>
+    <li style="cursor: pointer;" class="nav-item"  (click)="navegar('marca')" >
+      <a class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                Marcas
+            </a>
+    </li>
+    <li style="cursor: pointer;" class="nav-item"  (click)="navegar('ventas')" >
+      <a class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                Venta
+            </a>
+    </li>
+    <li style="cursor: pointer;" class="nav-item"  (click)="navegar('articulo')" >
+      <a class="nav-link text-dark font-italic">
+                <i class="fa fa-product-hunt mr-3 text-primary fa-fw"></i>
+                Articulos
+            </a>
+    </li>
+
+    <li style="cursor: pointer;" class="nav-item"  (click)="navegar('precios')" >
+      <a class="nav-link text-dark font-italic">
+                <i class="fa fa-product-hunt mr-3 text-primary fa-fw"></i>
+                Precios
+            </a>
+    </li>
+  </ul>
+</div>
+<!-- End vertical navbar -->
+
+
+
+<!-- Page content holder -->
+<div class="page-content" id="content">
+  <!-- Toggle button -->
+  <div style="background: cornflowerblue;">
+    <div class="row">
+      <div class="col-md-">
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4" (click)="ejecutar()">
+          <i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button> 
+      </div>
+      <div class="col-md-"><h4 style="color: #f8f9fa;">&nbsp; &nbsp;  Sistema de administracion de ventas</h4></div>
+    </div>
+
+  </div>
+
+
+</div>
+<!-- End demo content -->

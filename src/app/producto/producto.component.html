@@ -1,0 +1,59 @@
+
+<app-editar-producto *ngIf="modalProductoService.modal" ></app-editar-producto>
+<router-outlet></router-outlet>
+<app-menu></app-menu>
+<div class='dashboard-content'>
+  <div class='container'>
+          <div class='card-header'>
+           
+            <div class="row">
+                <div class="col-md-10">
+                  <form class="form-inline">
+                    <h5><i class="fa fa-chevron-circle-right pt-2" aria-hidden="true"></i>&nbsp;Módulo de Articulos</h5>
+                  </form>
+                </div>
+                <div class="col-md-2  text-right">
+                  <div class="btn-group pt-2">
+                   
+                      <button type="button" class="btn btn-outline-secondary btn-sm" title="Buscar producto(s)" >
+                        <span class="fa fa-search text-right fa-lg"></span>
+                      </button>
+
+                      <button type="button" class="btn btn-outline-info btn-sm" (click)="openModalShow()">
+                        <span class="fa fa-plus-square text-right fa-lg"></span>
+                      </button>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class='card-body'>
+            <table class="table table-sm ">
+              <thead>
+                <tr>
+                  <th scope="col" class="col-md-1"></th>
+                  <th scope="col"class="col-md-2">#</th>
+                  <th scope="col" class="col-md-2">Codigo</th>
+                  <th scope="col"class="col-md-2"> Descripcion</th>
+                  <th scope="col"class="col-md-2"> Marca</th>
+                  <th scope="col"class="col-md-2"> Registro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of listaProductos; index as i">
+                  <th scope="row" class="col-md-1">
+                    <button type="button" class="btn btn-outline-info btn-sm" (click)="openHelpModal()">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </button>
+                  </th>
+                  <th class="col-md-2"> {{producto.id}}</th>
+                  <td class="col-md-2">{{producto.codigo}}</td>
+                  <td class="col-md-2">{{producto.formatoSalida}}</td>
+                  <td class="col-md-2">{{producto.marca.formatoSalida}}</td>
+                  <td class="col-md-2">{{producto.fechaRegistro  | date: 'dd/MM/yyyy'}}</td>
+                </tr>
+              </tbody>
+              
+            </table>
+          </div>
+  </div>
+</div>
